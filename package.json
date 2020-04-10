@@ -1,0 +1,30 @@
+{
+  "name": "subtitles",
+  "description": "",
+  "version": "1.0.0",
+  "private": false,
+  "main": "dist/Run.js",
+  "scripts": {},
+  "author": "Alexandru Cancescu",
+  "license": "MIT",
+  "types": "dist/Run.d.ts",
+  "typings": "dist/Run.d.ts",
+  "keywords": [
+    "node","opensubtitles","subtitle","subtitle-download","subtitles","subs","srt","opensubtitles.org"
+  ],
+  "devDependencies": {
+    "@types/fs-extra": "^8.1.0",
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^13.11.1"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "commander": "^5.0.0",
+    "fs-extra": "^9.0.0",
+    "inquirer": "^7.1.0",
+    "keytar": "^5.4.0",
+    "opensubtitles-api": "^5.1.0",
+    "ora": "^4.0.3",
+    "platform-folders": "^0.5.1"
+  }
+}
