@@ -78,7 +78,7 @@ async function inquireAccount(accounts:Credentials[]):Promise<Credentials>{
 		type:"list",
 		name:"account",
 		choices:[...accounts.map(acc=>acc.account),"Other"],
-		message:"Which opensubtitles account you wish to use?"
+		message:"Which opensubtitles account fo you wish to use?"
 	}]);
 
 	return accounts.find(acc=>acc.account===accountName.account) ?? null;

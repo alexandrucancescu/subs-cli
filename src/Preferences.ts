@@ -2,7 +2,7 @@ import {getDataHome} from "platform-folders"
 import {ensureFile,readJson,writeJsonSync} from "fs-extra"
 import {join} from "path";
 
-const PREF_DIR=join(getDataHome(),"NodeJS Subtitle Downloader");
+export const PREF_DIR=join(getDataHome(),"Subtitles CLI");
 const PREF_FILE=join(PREF_DIR,"preferences.json");
 
 interface IPreferences {

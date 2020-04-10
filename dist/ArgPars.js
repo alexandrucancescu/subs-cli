@@ -6,7 +6,7 @@ const path_1 = require("path");
 function parse() {
     var _a, _b;
     const pack = fs_extra_1.readJsonSync(path_1.join(__dirname, "../package.json"));
-    const program = new commander.Command(pack.name);
+    const program = new commander.Command("subs");
     program.version(pack.version);
     program.option("-l, --lang <value>", "the language of the subtitles (eng/en, fr/fre, ro/rum, ...) (default: eng)");
     // program.option("-u, --username <value>","username on opensubtitles.org");

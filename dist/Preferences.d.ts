@@ -1,3 +1,4 @@
+export declare const PREF_DIR: string;
 declare class Preferences {
     private _lang;
     private _account;

@@ -14,7 +14,7 @@ interface Arguments{
 
 export default function parse():Arguments{
 	const pack=readJsonSync(join(__dirname,"../package.json"));
-	const program=new commander.Command(pack.name);
+	const program=new commander.Command("subs");
 	program.version(pack.version);
 
 	program.option("-l, --lang <value>","the language of the subtitles (eng/en, fr/fre, ro/rum, ...) (default: eng)");

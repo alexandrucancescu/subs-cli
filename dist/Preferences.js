@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const platform_folders_1 = require("platform-folders");
 const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");
-const PREF_DIR = path_1.join(platform_folders_1.getDataHome(), "NodeJS Subtitle Downloader");
-const PREF_FILE = path_1.join(PREF_DIR, "preferences.json");
+exports.PREF_DIR = path_1.join(platform_folders_1.getDataHome(), "Subtitles CLI");
+const PREF_FILE = path_1.join(exports.PREF_DIR, "preferences.json");
 class Preferences {
     loadPreferences() {
         return __awaiter(this, void 0, void 0, function* () {

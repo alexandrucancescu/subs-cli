@@ -1,17 +1,32 @@
 {
-  "name": "subtitles",
-  "description": "",
+  "name": "subs-cli",
+  "description": "A full featured, easy to use, CLI app to download subtitles from opensubtitles.org",
   "version": "1.0.0",
   "private": false,
   "main": "dist/Run.js",
-  "scripts": {},
+  "scripts": {
+    "postuninstall": "node ./dist/Uninstall.js"
+  },
   "author": "Alexandru Cancescu",
   "license": "MIT",
+  "homepage": "https://github.com/alexandrucancescu/subs-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexandrucancescu/subs-cli"
+  },
+  "files": [
+    "dist/*",
+    "extensions.json",
+    "langs.json"
+  ],
   "types": "dist/Run.d.ts",
   "typings": "dist/Run.d.ts",
   "keywords": [
     "node","opensubtitles","subtitle","subtitle-download","subtitles","subs","srt","opensubtitles.org"
   ],
+  "bin": {
+    "subs": "./dist/Run.js"
+  },
   "devDependencies": {
     "@types/fs-extra": "^8.1.0",
     "@types/inquirer": "^6.5.0",
