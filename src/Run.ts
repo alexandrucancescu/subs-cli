@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import {join,isAbsolute,basename} from "path"
 import {readFileSync, pathExistsSync, lstatSync, readdirSync} from "fs-extra"
 import parseArguments from "./ArgPars"
