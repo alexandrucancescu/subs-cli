@@ -1,7 +1,7 @@
 {
   "name": "subs-cli",
   "description": "A full featured, easy to use, CLI app to download subtitles from opensubtitles.org",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "main": "dist/Run.js",
   "scripts": {

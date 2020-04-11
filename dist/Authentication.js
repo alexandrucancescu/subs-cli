@@ -16,6 +16,7 @@ const Util_1 = require("./Util");
 const OpenSubtitles = require("opensubtitles-api");
 const ora = require("ora");
 const Preferences_1 = require("./Preferences");
+const os_1 = require("os");
 function authenticate() {
     return __awaiter(this, void 0, void 0, function* () {
         let accounts = yield keytar.findCredentials("opensubtitles.org");
@@ -101,7 +102,7 @@ function inquireCredentials() {
                 return credentials;
             }
             else {
-                console.log(chalk.redBright("\nUsername/Password cannot be empty!\n"));
+                console.log(chalk.redBright(`${os_1.EOL}Username/Password cannot be empty!${os_1.EOL}`));
             }
         }
     });

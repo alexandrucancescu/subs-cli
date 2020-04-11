@@ -9,6 +9,7 @@ import authenticate from "./Authentication";
 import {downloadFile, getLang, isString} from "./Util";
 import DownloadEventHandler, {DownloadError, DownloadResult} from "./DownloadEventHandler";
 import {ILanguage, IOpenSubtitles, ISubInfo} from "./Types";
+import {EOL} from "os"
 
 
 const args=parseArguments();
@@ -23,7 +24,7 @@ async function start(){
 	const files=getFiles(targetPath);
 
 	if(files.length<1){
-		console.log(chalk.yellowBright("\nNo files found\n"));
+		console.log(chalk.yellowBright(`${EOL}No files found${EOL}`));
 		return;
 	}
 
@@ -53,7 +54,7 @@ async function start(){
 	printResult(result);
 
 	if(quota>-1){
-		console.log(chalk.yellowBright(`\n OpenSubtitle.org download quota: ${chalk.bold(quota)}`));
+		console.log(chalk.yellowBright(`${EOL}OpenSubtitle.org download quota: ${chalk.bold(quota)}`));
 	}
 
 
@@ -128,7 +129,7 @@ function getLanguage():ILanguage{
 			chalk.greenBright(
 				`Language set to ${chalk.yellow(lang.name)}` +
 				(isDefault ? `. To save as default add ${chalk.blueBright("-s")} option` : " as default") +
-				"\n"
+				EOL
 			)
 		);
 
@@ -147,7 +148,7 @@ function getPath():string{
 	let targetPath:string;
 
 	if(!isString(args.path)){
-		console.error(chalk.redBright.bold("No path specified!\n"));
+		console.error(chalk.redBright.bold(`No path specified!${EOL}`));
 		console.log(args.parser.helpInformation());
 		process.exit(0);
 	}

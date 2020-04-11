@@ -18,6 +18,7 @@ const Preferences_1 = require("./Preferences");
 const Authentication_1 = require("./Authentication");
 const Util_1 = require("./Util");
 const DownloadEventHandler_1 = require("./DownloadEventHandler");
+const os_1 = require("os");
 const args = ArgPars_1.default();
 let osub;
 let quota = -Infinity;
@@ -26,7 +27,7 @@ function start() {
         const targetPath = getPath();
         const files = getFiles(targetPath);
         if (files.length < 1) {
-            console.log(chalk.yellowBright("\nNo files found\n"));
+            console.log(chalk.yellowBright(`${os_1.EOL}No files found${os_1.EOL}`));
             return;
         }
         yield Preferences_1.default.loadPreferences();
@@ -47,7 +48,7 @@ function start() {
         const result = yield downloadWatcher.finishAll();
         printResult(result);
         if (quota > -1) {
-            console.log(chalk.yellowBright(`\n OpenSubtitle.org download quota: ${chalk.bold(quota)}`));
+            console.log(chalk.yellowBright(`${os_1.EOL}OpenSubtitle.org download quota: ${chalk.bold(quota)}`));
         }
         // const subs=await (await authenticate()).search({
         // 	sublanguageid:"eng",
@@ -113,7 +114,7 @@ function getLanguage() {
         const isDefault = (lang.alpha3 !== Preferences_1.default.lang && !args.saveLang);
         console.log(chalk.greenBright(`Language set to ${chalk.yellow(lang.name)}` +
             (isDefault ? `. To save as default add ${chalk.blueBright("-s")} option` : " as default") +
-            "\n"));
+            os_1.EOL));
         if (args.saveLang === true) {
             Preferences_1.default.lang = lang.alpha3;
         }
@@ -127,7 +128,7 @@ function getLanguage() {
 function getPath() {
     let targetPath;
     if (!Util_1.isString(args.path)) {
-        console.error(chalk.redBright.bold("No path specified!\n"));
+        console.error(chalk.redBright.bold(`No path specified!${os_1.EOL}`));
         console.log(args.parser.helpInformation());
         process.exit(0);
     }

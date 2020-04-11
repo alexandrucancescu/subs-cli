@@ -6,6 +6,7 @@ import * as OpenSubtitles from "opensubtitles-api"
 import * as ora from "ora"
 import Preferences from "./Preferences";
 import {IOpenSubtitles} from "./Types";
+import {EOL} from "os"
 
 interface Credentials{
 	account:string;
@@ -94,7 +95,7 @@ async function inquireCredentials():Promise<Credentials>{
 		if(isString(credentials.password,credentials.account)){
 			return credentials;
 		}else{
-			console.log(chalk.redBright("\nUsername/Password cannot be empty!\n"))
+			console.log(chalk.redBright(`${EOL}Username/Password cannot be empty!${EOL}`))
 		}
 	}
 }
