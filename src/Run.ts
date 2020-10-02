@@ -12,7 +12,6 @@ import {ILanguage, IOpenSubtitles, ISubInfo} from "./Types";
 import {EOL} from "os"
 import {execSync} from "child_process";
 
-
 const args=parseArguments();
 
 let osub:IOpenSubtitles;
@@ -71,7 +70,7 @@ async function start(){
 
 function printResult(result:DownloadResult){
 	if(args.notificationOutput){
-		execSync(`osascript -e 'display notification "Downloaded ${}" with title "Subtitle Download"'`);
+		execSync(`osascript -e 'display notification "Downloaded ${result.success.length}" with title "Subtitle Download"'`);
 		return;
 	}
 

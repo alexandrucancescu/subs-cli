@@ -63,7 +63,7 @@ function start() {
 }
 function printResult(result) {
     if (args.notificationOutput) {
-        child_process_1.execSync(`osascript -e 'display notification "Downloaded ${}" with title "Subtitle Download"'`);
+        child_process_1.execSync(`osascript -e 'display notification "Downloaded ${result.success.length}" with title "Subtitle Download"'`);
         return;
     }
     if (result.success.length > 0) {
