@@ -19,6 +19,7 @@ const Authentication_1 = require("./Authentication");
 const Util_1 = require("./Util");
 const DownloadEventHandler_1 = require("./DownloadEventHandler");
 const os_1 = require("os");
+const child_process_1 = require("child_process");
 const args = ArgPars_1.default();
 let osub;
 let quota = -Infinity;
@@ -61,6 +62,10 @@ function start() {
     });
 }
 function printResult(result) {
+    if (args.notificationOutput) {
+        child_process_1.execSync(`osascript -e 'display notification "Downloaded ${}" with title "Subtitle Download"'`);
+        return;
+    }
     if (result.success.length > 0) {
         console.log();
         console.log(chalk.bold.green("  SUCCESS:"));

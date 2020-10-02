@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.downloadFile = exports.getLang = exports.isString = void 0;
 const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");
 const https = require("https");

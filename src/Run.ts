@@ -10,6 +10,7 @@ import {downloadFile, getLang, isString} from "./Util";
 import DownloadEventHandler, {DownloadError, DownloadResult} from "./DownloadEventHandler";
 import {ILanguage, IOpenSubtitles, ISubInfo} from "./Types";
 import {EOL} from "os"
+import {execSync} from "child_process";
 
 
 const args=parseArguments();
@@ -69,6 +70,11 @@ async function start(){
 }
 
 function printResult(result:DownloadResult){
+	if(args.notificationOutput){
+		execSync(`osascript -e 'display notification "Downloaded ${}" with title "Subtitle Download"'`);
+		return;
+	}
+
 	if(result.success.length>0){
 		console.log();
 

@@ -1,6 +1,7 @@
 import * as commander from "commander"
 import {readJsonSync} from "fs-extra"
 import {join} from "path"
+import {platform} from "os"
 
 interface Arguments{
 	lang:string;
@@ -9,7 +10,9 @@ interface Arguments{
 	overwrite?:boolean;
 	saveLang?:boolean;
 	path:string;
-	parser:commander.Command,
+	parser:commander.Command;
+	notificationOutput:boolean;
+	noPrompt:boolean;
 }
 
 export default function parse():Arguments{
@@ -23,6 +26,12 @@ export default function parse():Arguments{
 	program.option("-o, --overwrite","overwrite existing subtitles",false);
 	program.option("-p, --path","path of file or dir of files to download subtitles for");
 	program.option("-s, --save-lang","save the current language as default");
+	program.option("-N, --no-prompt","the app will not prompt for any user input");
+
+	if(platform()==="darwin"){
+		program.option("-n, --notification-output","show output as a notification");
+	}
+
 	program.usage("<path> [options]")
 
 	program.parse(process.argv);
@@ -37,5 +46,7 @@ export default function parse():Arguments{
 		saveLang:program.saveLang ?? false,
 		path:program.args[0],
 		parser:program,
+		notificationOutput: program.notificationOutput ?? false,
+		noPrompt: program.noPrompt ?? false,
 	}
 }

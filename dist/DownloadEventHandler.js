@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DownloadError = void 0;
 const ora = require("ora");
 const chalk = require("chalk");
 class DownloadEventHandler {

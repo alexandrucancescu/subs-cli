@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PREF_DIR = void 0;
 const platform_folders_1 = require("platform-folders");
 const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");

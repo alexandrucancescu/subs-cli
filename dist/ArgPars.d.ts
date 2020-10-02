@@ -7,6 +7,8 @@ interface Arguments {
     saveLang?: boolean;
     path: string;
     parser: commander.Command;
+    notificationOutput: boolean;
+    noPrompt: boolean;
 }
 export default function parse(): Arguments;
 export {};
